@@ -17,6 +17,8 @@ namespace groveGearStepperDriver
 		driver->setSpeed(FULL_SPEED);
 		driver->stepperSteps(HALF_ROTATION);
 	}
+
+	// TODO Other speeds and rotations.
 }
 
 

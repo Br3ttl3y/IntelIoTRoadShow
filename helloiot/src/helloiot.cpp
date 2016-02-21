@@ -1,50 +1,35 @@
 /*
- * Author: Jessica Gomez <jessica.gomez.hernandez@intel.com>
+ * Author: Brett Carroll <brett.carroll@gmail.com>
  * Copyright (c) 2015 Intel Corporation.
  *
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- *
- * The above copyright notice and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ * SOFTWARE AS IS - NO WARRANTY.
  */
 
 /**
  * @file
  * @ingroup basic
- * @brief On board LED blink C++
+ * @brief Move a motor and pump
  *
  * The configuration of your board is your responsibility and is done through
  * the header files of this program.
  *
- * @date 29/09/2015
+ * @date 2/20/16
  */
 
 #include "groveGearStepperDriver.hpp"
 #include "miniWaterPump.hpp"
 
-#include <iostream>
-#include <unistd.h>
-
 int main()
 {
+	// This is how you move the motor after it is hooked up correctly
+	// for more information on "correctly" see hpp files.
 	groveGearStepperDriver::GearStepperDriver driver = groveGearStepperDriver::GearStepperDriver();
-	miniWaterPump::WaterPump pump = miniWaterPump::WaterPump();
-
 	driver.MoveFastestHalfWay();
+
+	// This is how you control the pump.
+	// Make sure you have it hooked up correctly as well.
+	// Again, see hpp files for help
+	miniWaterPump::WaterPump pump = miniWaterPump::WaterPump();
 	pump.PumpOn();
 	pump.PumpOff();
 

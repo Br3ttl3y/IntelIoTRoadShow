@@ -12,11 +12,14 @@ namespace miniWaterPump{
 	WaterPump::WaterPump(){
 		mraa_init();
 		waterPumpPin = mraa_gpio_init(WATER_PUMP_PIN);
-		mraa_gpio_dir(waterPumpPin, MRAA_GPIO_OUT_HIGH);
+		pumpStatus = mraa_gpio_dir(waterPumpPin, MRAA_GPIO_OUT);
 	}
 
 	void WaterPump::PumpOn(){
-		mraa_gpio_write(waterPumpPin, PUMP_ON);
+		int pumpDuration = 2;
+
+		pumpStatus = mraa_gpio_write(waterPumpPin, PUMP_ON);
+		sleep(pumpDuration);
 	}
 
 	void WaterPump::PumpOff(){
