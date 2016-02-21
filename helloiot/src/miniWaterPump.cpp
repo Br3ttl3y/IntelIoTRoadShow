@@ -10,6 +10,8 @@
 namespace miniWaterPump{
 
 	WaterPump::WaterPump(){
+		relay = new upm::GroveRelay(WATER_PUMP_PIN);
+
 		mraa_init();
 		waterPumpPin = mraa_gpio_init(WATER_PUMP_PIN);
 		pumpStatus = mraa_gpio_dir(waterPumpPin, MRAA_GPIO_OUT);
@@ -18,12 +20,12 @@ namespace miniWaterPump{
 	void WaterPump::PumpOn(){
 		int pumpDuration = 2;
 
-		pumpStatus = mraa_gpio_write(waterPumpPin, PUMP_ON);
+		relay->on();
 		sleep(pumpDuration);
 	}
 
 	void WaterPump::PumpOff(){
-		mraa_gpio_write(waterPumpPin, PUMP_OFF);
+		relay->off();
 	}
 }
 

@@ -6,6 +6,7 @@
  */
 
 #include "mraa.hpp"
+#include <grove.h>
 
 namespace miniWaterPump{
 #ifndef MINIWATERPUMP_HPP_
@@ -65,7 +66,9 @@ namespace miniWaterPump{
 		void PumpOff();
 
 	private:
-		static const int WATER_PUMP_PIN = 13;
+		static const int WATER_PUMP_PIN = 3;
+
+		upm::GroveRelay* relay;
 
 		mraa_gpio_context waterPumpPin;
 		mraa_result_t pumpStatus;

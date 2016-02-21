@@ -24,7 +24,7 @@ int main()
 	// This is how you move the motor after it is hooked up correctly
 	// for more information on "correctly" see hpp files.
 	groveGearStepperDriver::GearStepperDriver driver = groveGearStepperDriver::GearStepperDriver();
-	driver.MoveFastestHalfWay();
+	driver.MoveSlowlyDumpSeeds();
 
 	// This is how you control the pump.
 	// Make sure you have it hooked up correctly as well.

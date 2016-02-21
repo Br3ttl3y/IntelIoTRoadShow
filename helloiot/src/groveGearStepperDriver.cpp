@@ -18,6 +18,20 @@ namespace groveGearStepperDriver
 		driver->stepperSteps(HALF_ROTATION);
 	}
 
+	void GearStepperDriver::MoveSlowlyDumpSeeds(){
+		driver->setDirection(upm::ULN200XA::DIR_CCW);
+		driver->setSpeed(QUARTER_SPEED);
+		driver->stepperSteps(DUMP_SEEDS);
+		GearStepperDriver::ResetFastestDumpSeeds();
+	}
+
+	void GearStepperDriver::ResetFastestDumpSeeds(){
+		driver->setDirection(upm::ULN200XA::DIR_CW);
+		driver->setSpeed(FULL_SPEED);
+		driver->stepperSteps(DUMP_SEEDS);
+	}
+
+
 	// TODO Other speeds and rotations.
 }
 

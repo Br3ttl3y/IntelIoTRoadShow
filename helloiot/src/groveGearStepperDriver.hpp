@@ -44,6 +44,7 @@ namespace groveGearStepperDriver
 		typedef enum
 		{
 			FULL_ROTATION = 4096,
+			DUMP_SEEDS = 2816,
 			HALF_ROTATION = 2048,
 			QUARTER_ROTATION = 1024,
 			EIGHTH_ROTATION = 512
@@ -71,6 +72,10 @@ namespace groveGearStepperDriver
 		* @param howFar four different increments (can be expanded later)
 		*/
 		void MoveFastestHalfWay();
+
+		void MoveSlowlyDumpSeeds();
+
+		void ResetFastestDumpSeeds();
 
 	private:
 		upm::ULN200XA* driver;
